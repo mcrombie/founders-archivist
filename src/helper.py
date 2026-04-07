@@ -1,15 +1,7 @@
-{
-    "doc_id": "",
-    "title": "James Madison to Thomas Jefferson, 17 October 1788",
-    "author": "Madison, James",
-    "recipient": "Jefferson, Thomas",
-    "date": "17 October 1788",
-    "year": 1788,
-    "collection": "Founders Online",
-    "document_type": "Letter",
-    "source_url": "https://founders.archives.gov/documents/Madison/01-11-02-0218",
-    "tags": [],
-    "text": "Dear Sir
+import json
+from pathlib import Path
+
+text = """Dear Sir
 I have written a number of letters to you since my return here, and shall add this by another casual opportunity just notified to me by Mr St. John. Your favor of July 31. came to hand the day before yesterday. The pamphlets of the Marquis Condorcet & Mr. Dupont referred to in it have also been received. Your other letters inclosed to the Delegation have been and will be disposed of as you wish; particularly those to Mr. Eppes & Col. Lewis.
 
 Nothing has been done on the subject of the outfit: there not having been a Congress of nine States for some time, nor even of seven for the last week. It is pretty certain that there will not again be a quorum of either number within the present year; and by no means certain that there will be one at all under the old Confederation. The Committee finding that nothing could be done have neglected to make a report as yet. I have spoken with a member of it in order to get one made, that the case may fall of course and in a favorable shape within the attention of the new Government. The fear of a precedent will probably lead to an allowance for a limited time, of the salary as enjoyed originally by foreign ministers in preference to a separate allowance for outfit. One of the members of the treasury board who ought, if certain facts have not escaped his memory to witness the reasonableness of your calculations, takes occasion I find to impress a contrary idea. Fortunately his influence will not be a very formidable obstacle to right.1
@@ -22,5 +14,24 @@ Supposing a bill of rights to be proper the articles which ought to compose it, 
 
 I inclose a paper containing the late proceedings in Kentucky.8 I wish the ensuing Convention may take no step injurious to the character of the district, and favorable to the views of those who wish ill to the U. States. One of my late letters communicated some circumstances which will not fail to occur on perusing the objects of the proposed Convention in next month. Perhaps however there may be less connection between the two cases than at first one is ready to conjecture. I am Dr Sir with the sincerst esteem & Affectn Yours
 
-Js. Madison Jr"
+Js. Madison Jr
+"""
+
+doc = {
+    "doc_id": "",
+    "title": "James Madison to Thomas Jefferson, 17 October 1788",
+    "author": "Madison, James",
+    "recipient": "Jefferson, Thomas",
+    "date": "17 October 1788",
+    "year": 1788,
+    "collection": "Founders Online",
+    "document_type": "Letter",
+    "source_url": "https://founders.archives.gov/documents/Madison/01-11-02-0218",
+    "tags": [],
+    "text": text
 }
+
+Path("data/raw/madison_1788_02_20.json").write_text(
+    json.dumps(doc, indent=2, ensure_ascii=False),
+    encoding="utf-8"
+)
